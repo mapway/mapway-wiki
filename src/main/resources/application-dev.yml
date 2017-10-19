@@ -1,0 +1,22 @@
+mail:
+    hostName: smtp.163.com
+    smtpPort: 25
+    userName: jianshez2003@163.com
+    password: wangmingli06
+    sSLOnConnect: false
+    from: jianshez2003@163.com
+    fromName: WIKI管理员
+    charset: UTF-8
+    adminEmail: zhangjsf@enn.cn
+spring:
+   mvc:
+     view:
+        prefix: /WEB-INF/jsp/
+        suffix: .jsp 
+   http:
+      multipart:
+        max-file-size: 50Mb
+        max-request-size: 50Mb 
+   metrics:
+      export:     
+        enabled: false
