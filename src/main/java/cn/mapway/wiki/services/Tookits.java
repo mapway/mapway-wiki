@@ -30,11 +30,15 @@ public class Tookits {
 	 * 系统启动发送邮件模板文件
 	 */
 	private final static String SERVICE_START_FILE = "service-start.html";
+	public static final String LOGIN_CODE = "LOGIN_CODE";
 	@Autowired
 	EmailService emailService;
 
 	@Autowired
 	EmailProperties emailProperties;
+
+	@Autowired
+	UserService userService;
 
 	/**
 	 * 发送系统启动邮件
@@ -64,12 +68,20 @@ public class Tookits {
 
 	/**
 	 * 打印应用程序信息
+	 * 
 	 * @param app
 	 */
 	public void printApplicationInformation(ConfigurableApplicationContext app) {
 		String[] activeProfiles = app.getEnvironment().getActiveProfiles();
-	    for (String profile : activeProfiles) {
-	    	log.info("current active profile:" + profile);
-	    }
+		for (String profile : activeProfiles) {
+			log.info("current active profile:" + profile);
+		}
+	}
+
+	/**
+	 * 初始化用户数据库.
+	 */
+	public void initDatabase() {
+		userService.initDatabse();
 	}
 }

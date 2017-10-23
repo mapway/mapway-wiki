@@ -1,3 +1,9 @@
+db:
+     driver: com.mysql.jdbc.Driver
+     url: jdbc:mysql://10.39.0.150/mapway-wiki
+     user: mapway-wiki
+     password: mapway-wiki
+     schema: mapway-wiki
 mail:
     hostName: smtp.163.com
     smtpPort: 25

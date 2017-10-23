@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import cn.mapway.wiki.configure.DbProperties;
 import cn.mapway.wiki.configure.EmailProperties;
 import cn.mapway.wiki.services.Tookits;
 
@@ -14,7 +15,7 @@ import cn.mapway.wiki.services.Tookits;
  *
  */
 @SpringBootApplication
-@EnableConfigurationProperties(EmailProperties.class)
+@EnableConfigurationProperties({EmailProperties.class,DbProperties.class})
 public class WikiApplication {
 
 	
@@ -22,7 +23,7 @@ public class WikiApplication {
 		ConfigurableApplicationContext app = SpringApplication.run(WikiApplication.class, args);
 		Tookits tookit=app.getBean(Tookits.class);
 		tookit.printApplicationInformation(app);
+		tookit.initDatabase();
 	}
-	
-	
+
 }
