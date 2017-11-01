@@ -110,6 +110,11 @@
 			<artifactId>mapway-doc-ui</artifactId>
 			<version>${mapway.version}</version>
 		</dependency>
+		<dependency> 
+			<groupId>cn.mapway</groupId>
+			<artifactId>mapway-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>
