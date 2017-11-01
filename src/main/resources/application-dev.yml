@@ -1,3 +1,7 @@
+upload:
+     repository: /home
+     prefixUrl: http://www.baidu.com/
+     supportFormat: apk
 db:
      driver: com.mysql.jdbc.Driver
      url: jdbc:mysql://10.39.0.150/mapway-wiki
@@ -21,8 +25,8 @@ spring:
         suffix: .jsp 
    http:
       multipart:
-        max-file-size: 50Mb
-        max-request-size: 50Mb 
+        max-file-size: 500Mb
+        max-request-size: 500Mb 
    metrics:
       export:     
         enabled: false

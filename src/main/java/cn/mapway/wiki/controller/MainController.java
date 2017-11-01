@@ -3,6 +3,7 @@ package cn.mapway.wiki.controller;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -19,7 +20,9 @@ import cn.apiclub.captcha.Captcha;
 import cn.apiclub.captcha.backgrounds.GradiatedBackgroundProducer;
 import cn.apiclub.captcha.text.producer.DefaultTextProducer;
 import cn.mapway.wiki.api.main.BaseResp;
+import cn.mapway.wiki.api.module.BaseReq;
 import cn.mapway.wiki.services.Tookits;
+import cn.mapway.wiki.services.UserService;
 
 /**
  * 主页面控制器
@@ -41,6 +44,15 @@ public class MainController extends BaseController {
 	public String index() {
 		return "index";
 	}
+	/**
+	 * 首页
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/index", method = { RequestMethod.GET })
+	public String index_page() {
+		return "index";
+	}
 
 	/**
 	 * 首页
@@ -49,11 +61,32 @@ public class MainController extends BaseController {
 	 */
 	@RequestMapping(value = "/login", method = { RequestMethod.GET })
 	public String login(@RequestParam(value = "url", defaultValue = "") String url, ModelMap data) {
-		if(url==null || url.length()==0)
-		{
-			url="/admin/home";
+		if (url == null || url.length() == 0) {
+			url = "/admin/home";
 		}
 		data.put("url", url);
+		return "login";
+	}
+
+	/**
+	 * 首页
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/test", method = { RequestMethod.GET })
+	public String test() {
+		return "files/test";
+	}
+
+	/**
+	 * 退出登录
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/logout", method = { RequestMethod.GET })
+	public String logout(HttpServletRequest request) {
+		BaseReq req = new BaseReq();
+		userService.logout(req, request);
 		return "login";
 	}
 

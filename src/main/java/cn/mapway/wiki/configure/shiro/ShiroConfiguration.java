@@ -68,7 +68,10 @@ public class ShiroConfiguration {
 
 		// <!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
 		// <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
-		filterChainDefinitionMap.put("/", "anon");
+		filterChainDefinitionMap.put("/js/**", "anon");
+		filterChainDefinitionMap.put("/fileserver", "anon");
+		filterChainDefinitionMap.put("/img/**", "anon");
+		filterChainDefinitionMap.put("/css/**", "anon");
 		filterChainDefinitionMap.put("/errors/**", "anon");
 		filterChainDefinitionMap.put("/doc/**", "anon");
 		filterChainDefinitionMap.put("/api/**", "anon");
@@ -118,10 +121,11 @@ public class ShiroConfiguration {
 	 */
 	@Bean(name = "credentialsMatcher")
 	public HashedCredentialsMatcher hashedCredentialsMatcher() {
+	
 		HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
 
 		hashedCredentialsMatcher.setHashAlgorithmName("md5");// 散列算法:这里使用MD5算法;
-		hashedCredentialsMatcher.setHashIterations(2);// 散列的次数，比如散列两次，相当于 md5(md5(""));
+		hashedCredentialsMatcher.setHashIterations(1);// 散列的次数，比如散列两次，相当于 md5(md5(""));
 		// storedCredentialsHexEncoded默认是true，此时用的是密码加密用的是Hex编码；false时用Base64编码
 		hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
 

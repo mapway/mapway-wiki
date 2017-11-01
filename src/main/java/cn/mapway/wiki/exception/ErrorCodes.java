@@ -13,10 +13,13 @@ public class ErrorCodes {
 	public static final ErrorCode ERROR_REQUEST_BODY = new ErrorCode(3, "接口请求JSON数据格式错误:${0}");
 	public static final ErrorCode ERROR_PARAMETER = new ErrorCode(4, "检查输入参数:${0}");
 	public static final ErrorCode ERROR_RUNTIME = new ErrorCode(5, "运行时错误");
+	public static final ErrorCode ERROR_RESOURCE_UNAUTHENTICATED = new ErrorCode(6, "需要登录认证[${0}]") ;
+	public static final ErrorCode ERROR_RESOURCE_UNAUTHORIZED = new ErrorCode(7, "需要授权[${0}]") ;
 
 	public static final ErrorCode ERROR_LOGIN_PAGE = new ErrorCode(1000, "需要登录");
 	public static final ErrorCode ERROR_LOGIN_USER_NOT_EXIST = new ErrorCode(1001, "用户不存在${0}");
 	public static final ErrorCode ERROR_LOGIN_PASSWORD_NOT_MATCH = new ErrorCode(1002, "密码错误");
 	public static final ErrorCode ERROR_LOGIN_CODE = new ErrorCode(1003, "验证码错误");;
+	public static final ErrorCode ERROR_LOGIN_ERROR = new ErrorCode(1004, "登录错误:${0}") ;
 
 }

@@ -1,6 +1,6 @@
 /*******************************************************************************
  数据库持久化层(For MySQL5.1 Java)
- 创建日期  Fri Oct 20 13:10:58 SGT 2017
+ 创建日期  Wed Oct 25 11:55:13 SGT 2017
  创建程序 Program 版本(3.0)
  程序设计 张建设 EMAIL:zhangjianshe@gmail.com PHONE:15910868680
 
@@ -31,6 +31,7 @@ import cn.mapway.document.annotation.*;
  *  Long id //角色ID<br/>
  *  String name //角色名称<br/>
  *  String summary //角色说明<br/>
+ *  Integer is_sys //是否是系统角色<br/>
  */
 
 @Table("role")
@@ -125,6 +126,34 @@ public class ROLEObj{
    */
   public void setSummary(String summary) {
     this.summary=summary;
+  }
+
+  /**
+   * 是否是系统角色 is_sys
+ */
+  public static final String FLD_IS_SYS="is_sys";
+
+ /**
+   * 字段is_sys 是否是系统角色
+   */
+	@Column("is_sys")
+  @ApiField(value="是否是系统角色",example="")
+  private Integer is_sys;
+
+  /**
+   * 返回字段is_sys 是否是系统角色的值.
+   * @return is_sys  是否是系统角色  int
+  */
+  public Integer getIs_sys() {
+    return is_sys;
+  }
+
+  /**
+   * 设置字段is_sys 是否是系统角色的值.
+   * @param is_sys  是否是系统角色  int
+   */
+  public void setIs_sys(Integer is_sys) {
+    this.is_sys=is_sys;
   }
 
 }

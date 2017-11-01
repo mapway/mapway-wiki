@@ -78,7 +78,7 @@
 						<label>密码</label>
 						<div class="ui left icon input">
 							<i class="lock icon"></i> <input type="password" id="pwd"
-								value="12345678" placeholder="密码" />
+								value="123456" placeholder="密码" />
 						</div>
 					</div>
 				</div>

@@ -1,6 +1,8 @@
 package cn.mapway.wiki.controller;
 
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -19,7 +21,10 @@ public class AdminController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "home")
-	public String home() {
+	@RequiresRoles("admin")
+	public String home(ModelMap map) {
+		
+		map.put("user", getUser());
 		return "admin/home";
 	}
 }

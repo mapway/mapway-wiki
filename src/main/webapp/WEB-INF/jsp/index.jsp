@@ -17,6 +17,7 @@
 
 .masthead .logo.item img {
 	margin-right: 1em;
+	
 }
 
 .masthead .ui.menu .ui.button {
